@@ -1,33 +1,72 @@
-# ========================
+# =========================
 # Python
-# ========================
+# =========================
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
-*.pyc
+.pytest_cache/
+.mypy_cache/
 
-# ========================
-# Virtual Environment
-# ========================
+# Virtual environments
 venv/
 .env/
+.env.*
 
-# ========================
+# =========================
+# Jupyter / Notebooks
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# Data files (keep structure, not raw data)
+# =========================
+data/raw/*.csv
+data/processed/*.csv
+data/features/*.csv
+
+# =========================
+# Model artifacts
+# =========================
+models/*.pkl
+models/*.joblib
+
+# Allow registry.json (IMPORTANT)
+!models/registry.json
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
+alerts/*.log
+
+# =========================
 # OS files
-# ========================
+# =========================
 .DS_Store
 Thumbs.db
 
-# ========================
-# Jupyter
-# ========================
-.ipynb_checkpoints/
+# =========================
+# Docker
+# =========================
+*.tar
+docker-compose.override.yml
 
-# ========================
-# Logs & Temp files
-# ========================
-*.log
-logs/
+# =========================
+# Prefect
+# =========================
+.prefect/
+.prefectignore
 
+# =========================
+# IDEs / Editors
+# =========================
+.vscode/
+.idea/
 
+# =========================
+# Misc
+# =========================
+*.tmp
+*.swp
