@@ -30,9 +30,8 @@ jobs:
           pytest
 
       - name: Build API Docker image
-        run: |
-          docker build -t aqi-api .
-
+        run: docker build -f docker/Dockerfile.api -t aqi-api .
+              
       - name: Build Streamlit Docker image
-        run: |
-          docker build -f Dockerfile.streamlit -t aqi-streamlit .
+        run: docker build -f docker/Dockerfile.streamlit -t aqi-streamlit .
+
