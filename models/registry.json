@@ -1,0 +1,5 @@
+{
+  "model_name": "random_forest",
+  "model_path": "models/aqi_forecast.pkl",
+  "registered_at": "2025-12-10T18:24:35.087139"
+}

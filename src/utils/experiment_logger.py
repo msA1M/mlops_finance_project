@@ -1,21 +1,22 @@
 import csv
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, Any
 
-EXPERIMENT_LOG = Path("experiments/experiment_log.csv")
-EXPERIMENT_LOG.parent.mkdir(exist_ok=True, parents=True)
+LOG_PATH = Path("experiments/experiment_log.csv")
 
+def log_experiment(model_name, metrics: dict):
+    LOG_PATH.parent.mkdir(exist_ok=True)
 
-def log_experiment(record: Dict[str, Any]) -> None:
-    record = {
+    row = {
         "timestamp": datetime.utcnow().isoformat(),
-        **record
+        "model": model_name,
+        **metrics
     }
-    write_header = not EXPERIMENT_LOG.exists()
 
-    with EXPERIMENT_LOG.open("a", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=record.keys())
-        if write_header:
+    file_exists = LOG_PATH.exists()
+
+    with open(LOG_PATH, "a", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=row.keys())
+        if not file_exists:
             writer.writeheader()
-        writer.writerow(record)
+        writer.writerow(row)
