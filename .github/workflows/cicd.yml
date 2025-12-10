@@ -29,9 +29,20 @@ jobs:
         run: |
           pytest
 
+      - name: Free Disk Space
+        run: |
+          echo "🔥 Cleaning GitHub runner disk space..."
+          docker system prune -af || true
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /opt/ghc
+          sudo rm -rf /usr/local/lib/android
+          sudo rm -rf /usr/local/share/powershell
+          df -h
+
+
       - name: Build API Docker image
         run: docker build -f docker/Dockerfile.api -t aqi-api .
-              
+
       - name: Build Streamlit Docker image
         run: docker build -f docker/Dockerfile.streamlit -t aqi-streamlit .
 
