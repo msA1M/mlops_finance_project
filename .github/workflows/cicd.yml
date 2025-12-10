@@ -31,7 +31,7 @@ jobs:
 
       - name: Build API Docker image
         run: |
-          docker build -f Dockerfile.api -t aqi-api .
+          docker build -t aqi-api .
 
       - name: Build Streamlit Docker image
         run: |
