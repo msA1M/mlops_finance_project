@@ -1,0 +1,3 @@
+task,model_name,accuracy,f1,rmse,mae,r2,silhouette
+regression,linear_regression,,,104520.72373865187,80561.40650376747,0.35151491596959483,
+regression,rf_improved,,,94301.22727869212,68430.07606666666,0.47212649504550785,

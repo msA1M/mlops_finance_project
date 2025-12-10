@@ -1,0 +1,13 @@
+pandas
+numpy
+scikit-learn
+fastapi
+uvicorn[standard]
+prefect
+streamlit
+matplotlib
+seaborn
+pytest
+deepchecks[vision,tabular]
+python-dotenv
+joblib
